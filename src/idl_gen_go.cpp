@@ -775,7 +775,7 @@ class GoGenerator : public BaseGenerator {
 }  // namespace go
 
 bool GenerateGo(const Parser &parser, const std::string &path,
-                const std::string &file_name) {
+                const std::string &file_name, const flatbuffers::IDLOptions&) {
   go::GoGenerator generator(parser, path, file_name);
   return generator.generate();
 }

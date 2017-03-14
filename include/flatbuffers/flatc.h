@@ -33,7 +33,8 @@ class FlatCompiler {
   struct Generator {
     typedef bool (*GenerateFn)(const flatbuffers::Parser &parser,
                                const std::string &path,
-                               const std::string &file_name);
+                               const std::string &file_name,
+                               const flatbuffers::IDLOptions& opts);
     typedef std::string (*MakeRuleFn)(const flatbuffers::Parser &parser,
                                       const std::string &path,
                                       const std::string &file_name);

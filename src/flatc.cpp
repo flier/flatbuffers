@@ -315,7 +315,7 @@ int FlatCompiler::Compile(int argc, const char** argv) {
         if (generator_enabled[i]) {
           if (!print_make_rules) {
             flatbuffers::EnsureDirExists(output_path);
-            if (!params_.generators[i].generate(*parser.get(), output_path, filebase)) {
+            if (!params_.generators[i].generate(*parser.get(), output_path, filebase, opts)) {
               Error(std::string("Unable to generate ") +
                     params_.generators[i].lang_name +
                     " for " +
@@ -331,7 +331,7 @@ int FlatCompiler::Compile(int argc, const char** argv) {
           if (grpc_enabled) {
             if (params_.generators[i].generateGRPC != nullptr) {
               if (!params_.generators[i].generateGRPC(*parser.get(), output_path,
-                                              filebase)) {
+                                              filebase, opts)) {
                 Error(std::string("Unable to generate GRPC interface for") +
                       params_.generators[i].lang_name);
               }
@@ -343,7 +343,7 @@ int FlatCompiler::Compile(int argc, const char** argv) {
         }
       }
 
-      if (opts.proto_mode) GenerateFBS(*parser.get(), output_path, filebase);
+      if (opts.proto_mode) GenerateFBS(*parser.get(), output_path, filebase, opts);
 
       // We do not want to generate code for the definitions in this file
       // in any files coming up next.

@@ -227,7 +227,8 @@ class GoGRPCGenerator : public flatbuffers::BaseGenerator {
 
 bool GenerateGoGRPC(const Parser &parser,
                     const std::string &path,
-                    const std::string &file_name) {
+                    const std::string &file_name,
+                    const flatbuffers::IDLOptions&) {
   int nservices = 0;
   for (auto it = parser.services_.vec.begin();
        it != parser.services_.vec.end(); ++it) {
@@ -239,7 +240,8 @@ bool GenerateGoGRPC(const Parser &parser,
 
 bool GenerateCppGRPC(const Parser &parser,
                   const std::string &path,
-                  const std::string &file_name) {
+                  const std::string &file_name,
+                  const flatbuffers::IDLOptions&) {
 
   int nservices = 0;
   for (auto it = parser.services_.vec.begin();

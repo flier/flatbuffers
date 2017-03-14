@@ -1355,7 +1355,7 @@ void GenStruct(StructDef &struct_def, std::string *code_ptr) {
 }  // namespace general
 
 bool GenerateGeneral(const Parser &parser, const std::string &path,
-                     const std::string &file_name) {
+                     const std::string &file_name, const flatbuffers::IDLOptions&) {
   general::GeneralGenerator generator(parser, path, file_name);
   return generator.generate();
 }
@@ -1403,7 +1403,8 @@ std::string BinaryFileName(const Parser &parser,
 
 bool GenerateBinary(const Parser &parser,
                     const std::string &path,
-                    const std::string &file_name) {
+                    const std::string &file_name,
+                    const flatbuffers::IDLOptions&) {
   return !parser.builder_.GetSize() ||
          flatbuffers::SaveFile(
            BinaryFileName(parser, path, file_name).c_str(),

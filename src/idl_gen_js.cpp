@@ -766,7 +766,7 @@ void GenStruct(const Parser &parser, StructDef &struct_def, std::string *code_pt
 }  // namespace js
 
 bool GenerateJS(const Parser &parser, const std::string &path,
-                const std::string &file_name) {
+                const std::string &file_name, const flatbuffers::IDLOptions&) {
   js::JsGenerator generator(parser, path, file_name);
   return generator.generate();
 }

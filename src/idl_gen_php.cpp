@@ -960,7 +960,7 @@ namespace php {
     }  // namespace php
 
     bool GeneratePhp(const Parser &parser, const std::string &path,
-                     const std::string &file_name) {
+                     const std::string &file_name, const flatbuffers::IDLOptions&) {
       php::PhpGenerator generator(parser, path, file_name);
       return generator.generate();
     }

@@ -1988,7 +1988,7 @@ class CppGenerator : public BaseGenerator {
 }  // namespace cpp
 
 bool GenerateCPP(const Parser &parser, const std::string &path,
-                 const std::string &file_name) {
+                 const std::string &file_name, const flatbuffers::IDLOptions&) {
   cpp::CppGenerator generator(parser, path, file_name);
   return generator.generate();
 }
